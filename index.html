@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Мой профессиональный сайт</title>
+
+
+    <style>
+
+        /* =====================================
+           ОСНОВНЫЕ НАСТРОЙКИ
+        ===================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+
+            color: #1f2937;
+
+            line-height: 1.6;
+
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(37, 99, 235, 0.12),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(99, 102, 241, 0.12),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #f8faff 0%,
+                    #eef4ff 50%,
+                    #ffffff 100%
+                );
+
+            min-height: 100vh;
+        }
+
+
+        /* =====================================
+           ШАПКА
+        ===================================== */
+
+        header {
+            background: rgba(255, 255, 255, 0.88);
+
+            backdrop-filter: blur(15px);
+
+            padding: 20px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow:
+                0 5px 25px rgba(0, 0, 0, 0.05);
+        }
+
+
+        .logo {
+            font-size: 24px;
+
+            font-weight: bold;
+
+            color: #111827;
+        }
+
+
+        /* =====================================
+           НАВИГАЦИЯ
+        ===================================== */
+
+        nav {
+            display: flex;
+
+            align-items: center;
+        }
+
+
+        nav a {
+            text-decoration: none;
+
+            color: #374151;
+
+            margin-left: 25px;
+
+            font-weight: 500;
+
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+
+        /* =====================================
+           КНОПКА МОБИЛЬНОГО МЕНЮ
+        ===================================== */
+
+        .menu-button {
+            display: none;
+
+            border: none;
+
+            background: transparent;
+
+            font-size: 30px;
+
+            cursor: pointer;
+
+            color: #111827;
+        }
+
+
+        /* =====================================
+           ГЛАВНЫЙ ЭКРАН
+        ===================================== */
+
+        .hero {
+            min-height: 700px;
+
+            padding: 80px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 60px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(37, 99, 235, 0.16),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(99, 102, 241, 0.12),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #eef4ff 0%,
+                    #ffffff 100%
+                );
+        }
+
+
+        /* Декоративный круг */
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 450px;
+
+            height: 450px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(37, 99, 235, 0.06);
+
+            top: -180px;
+
+            right: -120px;
+        }
+
+
+        .hero-text {
+            max-width: 650px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .hero-text h1 {
+            font-size: 56px;
+
+            line-height: 1.1;
+
+            margin-bottom: 25px;
+
+            color: #111827;
+        }
+
+
+        .hero-text h1 span {
+            color: #2563eb;
+        }
+
+
+        .hero-text p {
+            font-size: 20px;
+
+            color: #6b7280;
+
+            margin-bottom: 35px;
+
+            max-width: 600px;
+        }
+
+
+        /* =====================================
+           КНОПКИ
+        ===================================== */
+
+        .button {
+            display: inline-block;
+
+            background: #2563eb;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 16px 32px;
+
+            border-radius: 12px;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 10px 25px rgba(37, 99, 235, 0.25);
+
+            transition: 0.3s;
+        }
+
+
+        .button:hover {
+            background: #1d4ed8;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 30px rgba(37, 99, 235, 0.30);
+        }
+
+
+        /* =====================================
+           ФОТО
+        ===================================== */
+
+        .hero-photo {
+            flex-shrink: 0;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .hero-photo::before {
+            content: "";
+
+            position: absolute;
+
+            width: 390px;
+
+            height: 390px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(37, 99, 235, 0.12);
+
+            top: -15px;
+
+            left: -15px;
+
+            z-index: -1;
+        }
+
+
+        .hero-photo img {
+            width: 360px;
+
+            height: 360px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 8px solid white;
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.18);
+        }
+
+
+        /* =====================================
+           СЕКЦИИ
+        ===================================== */
+
+        section {
+            padding: 90px 7%;
+        }
+
+
+        .section-title {
+            text-align: center;
+
+            font-size: 38px;
+
+            margin-bottom: 50px;
+
+            color: #111827;
+        }
+
+
+        /* =====================================
+           ОБО МНЕ
+        ===================================== */
+
+        .about {
+            background:
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(37, 99, 235, 0.07),
+                    transparent 25%
+                ),
+
+                #ffffff;
+        }
+
+
+        .about-content {
+            max-width: 900px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        .about-content p {
+            font-size: 19px;
+
+            color: #6b7280;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =====================================
+           УСЛУГИ
+        ===================================== */
+
+        .services {
+            background:
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(37, 99, 235, 0.08),
+                    transparent 25%
+                ),
+
+                #f5f7fb;
+        }
+
+
+        .services-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+
+        .service-card {
+            background:
+                rgba(255, 255, 255, 0.92);
+
+            padding: 35px 25px;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.06);
+
+            transition: 0.3s;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.8);
+        }
+
+
+        .service-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 18px 40px rgba(0, 0, 0, 0.10);
+        }
+
+
+        .service-icon {
+            font-size: 42px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .service-card h3 {
+            font-size: 23px;
+
+            margin-bottom: 15px;
+
+            color: #111827;
+        }
+
+
+        .service-card p {
+            color: #6b7280;
+        }
+
+
+        /* =====================================
+           КОНТАКТЫ
+        ===================================== */
+
+        .contacts {
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(37, 99, 235, 0.10),
+                    transparent 35%
+                ),
+
+                #ffffff;
+
+            text-align: center;
+        }
+
+
+        .contacts p {
+            font-size: 19px;
+
+            color: #6b7280;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =====================================
+           ПОДВАЛ
+        ===================================== */
+
+        footer {
+            background: #111827;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+
+        footer p {
+            color: #9ca3af;
+        }
+
+
+        /* =====================================
+           ПЛАНШЕТ
+        ===================================== */
+
+        @media (max-width: 900px) {
+
+            header {
+                padding: 18px 30px;
+            }
+
+
+            .hero {
+                min-height: auto;
+
+                padding: 70px 30px;
+
+                gap: 45px;
+            }
+
+
+            .hero-text h1 {
+                font-size: 44px;
+            }
+
+
+            .hero-text p {
+                font-size: 18px;
+            }
+
+
+            .hero-photo img {
+                width: 280px;
+
+                height: 280px;
+            }
+
+
+            .hero-photo::before {
+                width: 310px;
+
+                height: 310px;
+            }
+
+
+            .services-grid {
+                grid-template-columns: 1fr;
+
+                max-width: 600px;
+            }
+        }
+
+
+        /* =====================================
+           МОБИЛЬНЫЙ ТЕЛЕФОН
+        ===================================== */
+
+        @media (max-width: 600px) {
+
+            /* ШАПКА */
+
+            header {
+                padding: 15px 20px;
+
+                position: relative;
+            }
+
+
+            .logo {
+                font-size: 21px;
+            }
+
+
+            /* Кнопка меню */
+
+            .menu-button {
+                display: block;
+            }
+
+
+            /* Навигация */
+
+            nav {
+                display: none;
+
+                position: absolute;
+
+                top: 100%;
+
+                left: 0;
+
+                width: 100%;
+
+                background: white;
+
+                padding: 15px 20px;
+
+                flex-direction: column;
+
+                box-shadow:
+                    0 10px 25px rgba(0, 0, 0, 0.08);
+            }
+
+
+            nav.active {
+                display: flex;
+            }
+
+
+            nav a {
+                margin: 0;
+
+                padding: 12px 5px;
+
+                width: 100%;
+
+                text-align: center;
+
+                border-bottom:
+                    1px solid #eeeeee;
+            }
+
+
+            nav a:last-child {
+                border-bottom: none;
+            }
+
+
+            /* ГЛАВНЫЙ ЭКРАН */
+
+            .hero {
+                min-height: auto;
+
+                padding:
+                    60px 20px
+                    70px;
+
+                flex-direction: column-reverse;
+
+                text-align: center;
+
+                gap: 35px;
+            }
+
+
+            .hero-text {
+                width: 100%;
+            }
+
+
+            .hero-text h1 {
+                font-size: 34px;
+
+                line-height: 1.15;
+
+                margin-bottom: 20px;
+            }
+
+
+            .hero-text p {
+                font-size: 17px;
+
+                line-height: 1.6;
+
+                margin-bottom: 28px;
+            }
+
+
+            /* ФОТО */
+
+            .hero-photo img {
+                width: 220px;
+
+                height: 220px;
+
+                border-width: 6px;
+            }
+
+
+            .hero-photo::before {
+                width: 245px;
+
+                height: 245px;
+
+                top: -12px;
+
+                left: -12px;
+            }
+
+
+            /* КНОПКА */
+
+            .button {
+                width: 100%;
+
+                max-width: 320px;
+
+                padding:
+                    15px 20px;
+
+                font-size: 16px;
+            }
+
+
+            /* СЕКЦИИ */
+
+            section {
+                padding:
+                    65px 20px;
+            }
+
+
+            .section-title {
+                font-size: 30px;
+
+                margin-bottom: 35px;
+            }
+
+
+            /* ОБО МНЕ */
+
+            .about-content p {
+                font-size: 17px;
+            }
+
+
+            /* УСЛУГИ */
+
+            .services-grid {
+                grid-template-columns: 1fr;
+
+                gap: 18px;
+            }
+
+
+            .service-card {
+                padding:
+                    30px 20px;
+            }
+
+
+            .service-card h3 {
+                font-size: 21px;
+            }
+
+
+            .service-card p {
+                font-size: 16px;
+            }
+
+
+            /* КОНТАКТЫ */
+
+            .contacts p {
+                font-size: 17px;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                padding:
+                    25px 20px;
+            }
+
+
+            footer p {
+                font-size: 14px;
+            }
+        }
+
+
+        /* =====================================
+           ОЧЕНЬ МАЛЕНЬКИЙ ТЕЛЕФОН
+        ===================================== */
+
+        @media (max-width: 380px) {
+
+            .hero-text h1 {
+                font-size: 30px;
+            }
+
+
+            .hero-photo img {
+                width: 190px;
+
+                height: 190px;
+            }
+
+
+            .hero-photo::before {
+                width: 215px;
+
+                height: 215px;
+            }
+
+
+            .section-title {
+                font-size: 27px;
+            }
+
+
+            .button {
+                max-width: 280px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         ШАПКА
+    ===================================== -->
+
+    <header>
+
+        <div class="logo">
+            Мой сайт
+        </div>
+
+
+        <!-- Кнопка мобильного меню -->
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu()"
+            aria-label="Открыть меню"
+        >
+            ☰
+        </button>
+
+
+        <!-- Навигация -->
+
+        <nav id="mainMenu">
+
+            <a href="#about">
+                Обо мне
+            </a>
+
+            <a href="#services">
+                Услуги
+            </a>
+
+            <a href="#contacts">
+                Контакты
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================
+         ГЛАВНЫЙ ЭКРАН
+    ===================================== -->
+
+    <section class="hero">
+
+
+        <div class="hero-text">
+
+            <h1>
+                Привет! Я
+                <span>ваш специалист</span>
+            </h1>
+
+
+            <p>
+                Помогаю бизнесу и людям решать задачи,
+                развиваться и получать результат.
+            </p>
+
+
+            <a
+                class="button"
+                href="https://vk.me/nikolaygolubev_smm"
+                target="_blank"
+            >
+                Связаться со мной
+            </a>
+
+        </div>
+
+
+
+        <div class="hero-photo">
+
+            <img
+                src="images/photo.jpg"
+                alt="Моя фотография"
+            >
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         ОБО МНЕ
+    ===================================== -->
+
+    <section
+        class="about"
+        id="about"
+    >
+
+        <h2 class="section-title">
+            Обо мне
+        </h2>
+
+
+        <div class="about-content">
+
+            <p>
+                Здесь можно рассказать о себе,
+                своём опыте и профессиональной деятельности.
+            </p>
+
+
+            <p>
+                Расскажите клиентам, чем вы занимаетесь,
+                кому помогаете и какие задачи решаете.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         УСЛУГИ
+    ===================================== -->
+
+    <section
+        class="services"
+        id="services"
+    >
+
+        <h2 class="section-title">
+            Мои услуги
+        </h2>
+
+
+        <div class="services-grid">
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    💼
+                </div>
+
+
+                <h3>
+                    Услуга №1
+                </h3>
+
+
+                <p>
+                    Кратко расскажите,
+                    что входит в эту услугу
+                    и какую задачу она решает.
+                </p>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🚀
+                </div>
+
+
+                <h3>
+                    Услуга №2
+                </h3>
+
+
+                <p>
+                    Опишите второе направление
+                    вашей профессиональной деятельности.
+                </p>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ⭐
+                </div>
+
+
+                <h3>
+                    Услуга №3
+                </h3>
+
+
+                <p>
+                    Добавьте ещё одну услугу,
+                    преимущество или направление работы.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         КОНТАКТЫ
+    ===================================== -->
+
+    <section
+        class="contacts"
+        id="contacts"
+    >
+
+        <h2 class="section-title">
+            Связаться со мной
+        </h2>
+
+
+        <p>
+            Если у вас есть вопрос или предложение —
+            напишите мне.
+        </p>
+
+
+        <a
+            class="button"
+            href="https://vk.me/nikolaygolubev_smm"
+            target="_blank"
+        >
+            Написать во ВКонтакте
+        </a>
+
+    </section>
+
+
+
+    <!-- =====================================
+         ПОДВАЛ
+    ===================================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Мой профессиональный сайт
+        </p>
+
+    </footer>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ===================================== -->
+
+    <script>
+
+        function toggleMenu() {
+
+            const menu =
+                document.getElementById("mainMenu");
+
+            menu.classList.toggle("active");
+
+        }
+
+
+        /* Закрываем меню после нажатия
+           на пункт */
+
+        const menuLinks =
+            document.querySelectorAll("#mainMenu a");
+
+
+        menuLinks.forEach(function(link) {
+
+            link.addEventListener("click", function() {
+
+                document
+                    .getElementById("mainMenu")
+                    .classList.remove("active");
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
