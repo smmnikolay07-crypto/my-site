@@ -16,18 +16,15 @@
       box-sizing: border-box;
     }
 
-    html {
-      background: #000;
-    }
-
+    html,
     body {
       margin: 0;
       background: #000;
     }
 
     /*
-      Координаты ссылок рассчитаны для макета размером 1920 × 3240 px.
-      Изображение и ссылки масштабируются вместе.
+      Координаты рассчитаны для полного макета 1920 × 3240 px.
+      Макет и кнопки масштабируются вместе при изменении ширины экрана.
     */
     .site {
       position: relative;
@@ -44,31 +41,49 @@
 
     .button {
       position: absolute;
+      z-index: 1;
       display: block;
-      background-image: var(--button-image);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      border-radius: 12px;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
     }
 
+    .button img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      transform-origin: center;
+      transition: transform 180ms ease;
+    }
+
+    @media (hover: hover) {
+      .button:hover {
+        z-index: 2;
+      }
+
+      .button:hover img {
+        transform: scale(1.08);
+      }
+    }
+
     .button:focus-visible {
-      outline: 3px solid #ffffff;
+      outline: 3px solid #fff;
       outline-offset: 4px;
     }
 
-    /*
-      Соцсети. Четвёртая, зелёная кнопка на макете
-      не получает ссылку: адрес для неё не указан.
-    */
+    @media (prefers-reduced-motion: reduce) {
+      .button img {
+        transition: none;
+      }
+    }
+
+    /* Социальные сети */
+
     .button--vk {
       left: 12.1354%;
       top: 17.3457%;
       width: 7.3958%;
       height: 4.4444%;
-      --button-image: url("assets/vk.png");
     }
 
     .button--youtube {
@@ -76,7 +91,6 @@
       top: 17.3457%;
       width: 7.4479%;
       height: 4.4444%;
-      --button-image: url("assets/youtube.png");
     }
 
     .button--telegram {
@@ -84,16 +98,15 @@
       top: 17.3457%;
       width: 7.5000%;
       height: 4.4444%;
-      --button-image: url("assets/telegram.png");
     }
 
     /* Портфолио */
+
     .button--all {
       left: 69.4271%;
       top: 66.2654%;
       width: 23.9063%;
       height: 3.7037%;
-      --button-image: url("assets/view-all.png");
     }
 
     .button--cards {
@@ -101,7 +114,6 @@
       top: 72.1296%;
       width: 31.2500%;
       height: 3.7037%;
-      --button-image: url("assets/product-cards.png");
     }
 
     .button--social {
@@ -109,7 +121,6 @@
       top: 76.8519%;
       width: 20.1042%;
       height: 3.7037%;
-      --button-image: url("assets/social-media.png");
     }
 
     .button--banners {
@@ -117,7 +128,6 @@
       top: 81.9444%;
       width: 35.3125%;
       height: 3.7037%;
-      --button-image: url("assets/banners.png");
     }
 
     .button--logos {
@@ -125,7 +135,6 @@
       top: 87.0679%;
       width: 20.1563%;
       height: 3.7037%;
-      --button-image: url("assets/logos.png");
     }
 
     .button--print {
@@ -133,29 +142,32 @@
       top: 91.9753%;
       width: 24.0625%;
       height: 3.7037%;
-      --button-image: url("assets/print.png");
     }
   </style>
 </head>
 
 <body>
   <main class="site">
+    <!-- Полный макет сайта -->
     <img
       class="site__design"
       src="assets/design.png"
-      alt="Николай Голубев — графический дизайнер и маркетолог. Информация об услугах и портфолио."
+      alt="Николай Голубев — графический дизайнер и маркетолог. Услуги и портфолио."
       width="1920"
       height="3240"
     >
 
     <!-- Социальные сети -->
+
     <a
       class="button button--vk"
       href="https://vk.ru/nikolaygolubev_smm"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="ВКонтакте Николая Голубева"
-    ></a>
+    >
+      <img src="assets/vk.png" alt="">
+    </a>
 
     <a
       class="button button--youtube"
@@ -163,7 +175,9 @@
       target="_blank"
       rel="noopener noreferrer"
       aria-label="YouTube Николая Голубева"
-    ></a>
+    >
+      <img src="assets/youtube.png" alt="">
+    </a>
 
     <a
       class="button button--telegram"
@@ -171,16 +185,21 @@
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Telegram Николая Голубева"
-    ></a>
+    >
+      <img src="assets/telegram.png" alt="">
+    </a>
 
     <!-- Портфолио -->
+
     <a
       class="button button--all"
       href="https://vk.ru/albums-214668388"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Смотреть всё портфолио"
-    ></a>
+    >
+      <img src="assets/view-all.png" alt="">
+    </a>
 
     <a
       class="button button--cards"
@@ -188,7 +207,9 @@
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Портфолио: карточки товаров"
-    ></a>
+    >
+      <img src="assets/product-cards.png" alt="">
+    </a>
 
     <a
       class="button button--social"
@@ -196,7 +217,9 @@
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Портфолио: оформление соцсетей"
-    ></a>
+    >
+      <img src="assets/social-media.png" alt="">
+    </a>
 
     <a
       class="button button--banners"
@@ -204,7 +227,9 @@
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Портфолио: рекламные баннеры"
-    ></a>
+    >
+      <img src="assets/banners.png" alt="">
+    </a>
 
     <a
       class="button button--logos"
@@ -212,7 +237,9 @@
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Портфолио: логотипы"
-    ></a>
+    >
+      <img src="assets/logos.png" alt="">
+    </a>
 
     <a
       class="button button--print"
@@ -220,7 +247,9 @@
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Портфолио: полиграфия"
-    ></a>
+    >
+      <img src="assets/print.png" alt="">
+    </a>
   </main>
 </body>
 </html>
