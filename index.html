@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Николай Голубев — графический дизайнер и маркетолог</title>
+    <title>Николай Голубев — графический дизайнер, маркетолог</title>
 
     <style>
+
         /* =========================
            ОСНОВНЫЕ НАСТРОЙКИ
         ========================= */
@@ -19,392 +20,466 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #050505;
+            background: #000000;
             color: #ffffff;
-            line-height: 1.5;
-        }
 
-        a {
-            color: inherit;
-            text-decoration: none;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            min-height: 100vh;
         }
 
 
         /* =========================
-           ЗАКРЕПЛЁННАЯ ШАПКА
+           ОБЩИЙ КОНТЕЙНЕР
         ========================= */
 
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 76px;
-
-            display: flex;
-            align-items: center;
-
-            background: rgba(5, 5, 5, 0.92);
-            backdrop-filter: blur(15px);
-
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-            z-index: 1000;
-        }
-
-        .header-inner {
-            width: min(1400px, 92%);
+        .page {
+            width: min(1400px, 94%);
             margin: 0 auto;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-
-        /* ЛОГО / ИМЯ */
-
-        .logo {
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-        }
-
-        .logo span {
-            color: #999999;
-            font-weight: 400;
-        }
-
-
-        /* НАВИГАЦИЯ */
-
-        .nav {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .nav a {
-            font-size: 15px;
-            color: #cfcfcf;
-            transition: 0.25s ease;
-        }
-
-        .nav a:hover {
-            color: #ffffff;
-        }
-
-
-        /* КНОПКА ЗАКАЗАТЬ ДИЗАЙН */
-
-        .order-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 12px 22px;
-
-            background: #ffffff;
-            color: #000000;
-
-            border-radius: 50px;
-
-            font-size: 14px;
-            font-weight: 700;
-
-            transition: 0.25s ease;
-
-            white-space: nowrap;
-        }
-
-        .order-button:hover {
-            transform: translateY(-2px);
-            background: #dddddd;
+            padding: 40px 0 80px;
         }
 
 
         /* =========================
-           ГЛАВНЫЙ ЭКРАН
+           ПЕРВЫЙ БОЛЬШОЙ БЛОК
         ========================= */
 
         .hero {
-            min-height: 100vh;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 130px 20px 80px;
-
             position: relative;
+
+            min-height: 520px;
+
             overflow: hidden;
 
+            border: 1px solid #007c7c;
+
+            border-radius: 28px;
+
             background:
-                radial-gradient(
-                    circle at 20% 20%,
-                    rgba(255,255,255,0.08),
-                    transparent 30%
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.97) 0%,
+                    rgba(0, 0, 0, 0.80) 35%,
+                    rgba(0, 0, 0, 0.20) 100%
                 ),
-                radial-gradient(
-                    circle at 80% 80%,
-                    rgba(255,255,255,0.06),
-                    transparent 30%
-                ),
-                #050505;
+                url("images/background.jpg");
+
+            background-size: cover;
+            background-position: center;
         }
+
+
+        /* =========================
+           СЕТКА НА ФОНЕ
+        ========================= */
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            opacity: 0.18;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.12) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.12) 1px,
+                    transparent 1px
+                );
+
+            background-size: 55px 55px;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           СОДЕРЖИМОЕ HERO
+        ========================= */
 
         .hero-content {
-            width: min(1200px, 92%);
-            text-align: center;
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            height: 100%;
+
+            min-height: 520px;
+
+            padding: 80px;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
         }
+
+
+        /* =========================
+           ТЕКСТ
+        ========================= */
+
+        .name {
+            font-size: clamp(40px, 5vw, 72px);
+
+            font-weight: 800;
+
+            line-height: 0.95;
+
+            margin-bottom: 14px;
+
+            max-width: 650px;
+        }
+
+        .profession {
+            font-size: clamp(18px, 2vw, 28px);
+
+            font-weight: 600;
+
+            color: #ffffff;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* =========================
+           ФОТО
+        ========================= */
 
         .hero-photo {
-            width: 190px;
-            height: 190px;
+            position: absolute;
 
-            object-fit: cover;
+            right: 2%;
+            bottom: 0;
 
-            border-radius: 50%;
+            width: min(48%, 600px);
 
-            border: 3px solid rgba(255,255,255,0.15);
+            max-height: 95%;
 
-            margin-bottom: 30px;
+            object-fit: contain;
 
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        }
+            object-position: bottom center;
 
-        .hero h1 {
-            font-size: clamp(42px, 7vw, 86px);
-            line-height: 1;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
+            z-index: 1;
 
-        .hero-subtitle {
-            font-size: clamp(18px, 2.5vw, 28px);
-            color: #a7a7a7;
-            margin-bottom: 35px;
-        }
-
-        .hero-text {
-            max-width: 700px;
-            margin: 0 auto 40px;
-
-            font-size: 17px;
-            color: #bdbdbd;
+            filter: drop-shadow(
+                0 20px 35px rgba(0,0,0,0.5)
+            );
         }
 
 
-        /* СОЦИАЛЬНЫЕ КНОПКИ */
+        /* =========================
+           СОЦИАЛЬНЫЕ КНОПКИ
+        ========================= */
 
         .socials {
             display: flex;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
+
+            gap: 15px;
+
+            margin-bottom: 38px;
         }
 
         .social-button {
-            width: 52px;
-            height: 52px;
-
-            border-radius: 50%;
+            width: 62px;
+            height: 62px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
-            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
 
-            background: rgba(255,255,255,0.05);
+            color: #ffffff;
 
-            font-size: 14px;
-            font-weight: 700;
+            text-decoration: none;
 
-            transition: 0.25s ease;
+            font-size: 23px;
+
+            font-weight: 800;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
         .social-button:hover {
-            transform: translateY(-4px);
-            background: #ffffff;
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.35);
+        }
+
+
+        /* VK */
+
+        .vk {
+            background: #0077ff;
+        }
+
+
+        /* YouTube */
+
+        .youtube {
+            background: #ff0000;
+        }
+
+
+        /* Telegram */
+
+        .telegram {
+            background: #229ed9;
+        }
+
+
+        /* WhatsApp */
+
+        .whatsapp {
+            background: #00c853;
+        }
+
+
+        /* =========================
+           НАПРАВЛЕНИЯ
+        ========================= */
+
+        .directions {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+
+            max-width: 520px;
+        }
+
+        .direction {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            color: #00eeee;
+
+            font-size: clamp(15px, 1.5vw, 21px);
+
+            font-weight: 700;
+        }
+
+        .direction-icon {
+            width: 16px;
+            height: 16px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: #00eeee;
+
             color: #000000;
+
+            border-radius: 4px;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            flex-shrink: 0;
         }
 
 
         /* =========================
-           ОБЩИЕ НАСТРОЙКИ РАЗДЕЛОВ
+           РАБОТАЮ С 2022
         ========================= */
 
-        .section {
-            width: min(1400px, 92%);
-            margin: 0 auto;
+        .experience {
+            position: absolute;
 
-            padding: 110px 0;
+            top: 115px;
+            right: 80px;
+
+            z-index: 3;
+
+            font-size: 22px;
+
+            line-height: 1.15;
+
+            color: #ffffff;
         }
 
-        .section-title {
-            margin-bottom: 15px;
+        .experience strong {
+            display: block;
 
-            font-size: clamp(34px, 5vw, 60px);
-            line-height: 1;
-            font-weight: 800;
-        }
+            color: #00eeee;
 
-        .section-description {
-            color: #888888;
-            margin-bottom: 50px;
-            font-size: 17px;
+            font-size: 30px;
+
+            margin-top: 3px;
         }
 
 
         /* =========================
-           БЛОК РАБОТ
+           ВТОРОЙ БЛОК
         ========================= */
 
-        .works-grid {
+        .info-grid {
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr 1fr;
 
-            gap: 24px;
+            gap: 28px;
+
+            margin-top: 28px;
         }
 
-        .work-card {
-            background: #111111;
 
-            border: 1px solid rgba(255,255,255,0.08);
+        /* =========================
+           БЛОК С ЦИФРАМИ
+        ========================= */
 
-            border-radius: 18px;
+        .statistics {
+            background: #00eeee;
+
+            color: #050505;
+
+            border-radius: 28px;
+
+            padding: 45px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            min-height: 430px;
+        }
+
+        .stat {
+            display: grid;
+
+            grid-template-columns: 55px 1fr;
+
+            align-items: center;
+
+            margin-bottom: 35px;
+        }
+
+        .stat:last-child {
+            margin-bottom: 0;
+        }
+
+        .stat-arrow {
+            font-size: 55px;
+
+            font-weight: 900;
+
+            line-height: 1;
+        }
+
+        .stat-number {
+            font-size: clamp(65px, 7vw, 105px);
+
+            font-weight: 900;
+
+            line-height: 0.85;
+        }
+
+        .stat-text {
+            font-size: clamp(20px, 2vw, 30px);
+
+            line-height: 1.1;
+
+            margin-top: 8px;
+        }
+
+
+        /* =========================
+           ПРЕИМУЩЕСТВА
+        ========================= */
+
+        .advantages {
+            position: relative;
 
             overflow: hidden;
 
-            transition: 0.3s ease;
+            border-radius: 28px;
+
+            padding: 45px;
+
+            min-height: 430px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.70),
+                    rgba(0,0,0,0.82)
+                ),
+                url("images/background.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            border: 1px solid #007c7c;
         }
 
-        .work-card:hover {
-            transform: translateY(-6px);
-
-            border-color: rgba(255,255,255,0.2);
+        .advantage {
+            margin-bottom: 35px;
         }
 
-
-        /* КАРТИНКА РАБОТЫ */
-
-        .work-image {
-            width: 100%;
-
-            aspect-ratio: 4 / 3;
-
-            object-fit: cover;
-
-            display: block;
-
-            background: #1b1b1b;
+        .advantage:last-child {
+            margin-bottom: 0;
         }
 
+        .advantage-title {
+            display: flex;
 
-        /* ТЕКСТ ПОД РАБОТОЙ */
+            align-items: center;
 
-        .work-info {
-            padding: 20px;
+            gap: 14px;
+
+            font-size: clamp(19px, 2vw, 27px);
+
+            font-weight: 800;
+
+            margin-bottom: 12px;
         }
 
-        .work-info h3 {
-            font-size: 19px;
-            margin-bottom: 7px;
+        .advantage-dot {
+            width: 15px;
+            height: 15px;
+
+            border-radius: 50%;
+
+            background: #00eeee;
+
+            flex-shrink: 0;
         }
 
-        .work-info p {
-            font-size: 14px;
-            color: #858585;
-        }
+        .advantage-text {
+            padding-left: 29px;
 
+            color: #eeeeee;
 
-        /* =========================
-           РАЗДЕЛ СОЦ. СЕТЕЙ
-        ========================= */
+            font-size: clamp(16px, 1.5vw, 22px);
 
-        .social-section {
-            background: #080808;
-
-            width: 100%;
-
-            border-top: 1px solid rgba(255,255,255,0.06);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
-
-        .social-section .section {
-            max-width: 1400px;
-        }
-
-
-        /* =========================
-           CTA
-        ========================= */
-
-        .cta {
-            width: min(1000px, 92%);
-            margin: 0 auto;
-
-            padding: 120px 20px;
-
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-size: clamp(35px, 5vw, 65px);
-            line-height: 1;
-            margin-bottom: 20px;
-        }
-
-        .cta p {
-            color: #888888;
-            max-width: 600px;
-            margin: 0 auto 35px;
-        }
-
-        .cta-button {
-            display: inline-flex;
-
-            padding: 15px 30px;
-
-            border-radius: 50px;
-
-            background: #ffffff;
-            color: #000000;
-
-            font-weight: 700;
-
-            transition: 0.25s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            background: #dddddd;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            padding: 35px 20px;
-
-            text-align: center;
-
-            border-top: 1px solid rgba(255,255,255,0.08);
-
-            color: #666666;
-
-            font-size: 14px;
+            line-height: 1.15;
         }
 
 
@@ -414,152 +489,315 @@
 
         @media (max-width: 900px) {
 
-            .header {
-                height: auto;
-                min-height: 70px;
-            }
+            .page {
+                width: 94%;
 
-            .header-inner {
-                flex-wrap: wrap;
-                padding: 12px 0;
-            }
-
-            .nav {
-                order: 3;
-                width: 100%;
-
-                justify-content: center;
-
-                gap: 20px;
-
-                padding-top: 5px;
-            }
-
-            .works-grid {
-                grid-template-columns: repeat(2, 1fr);
+                padding-top: 20px;
             }
 
             .hero {
-                padding-top: 160px;
+                min-height: auto;
+
+                border-radius: 22px;
+            }
+
+            .hero-content {
+                min-height: auto;
+
+                padding: 45px 35px 0;
+            }
+
+            .hero-photo {
+                position: relative;
+
+                right: auto;
+                bottom: auto;
+
+                order: 10;
+
+                width: 90%;
+
+                max-height: 500px;
+
+                margin: 30px auto 0;
+
+                align-self: center;
+            }
+
+            .experience {
+                position: relative;
+
+                top: auto;
+                right: auto;
+
+                margin-bottom: 25px;
+
+                order: 1;
+            }
+
+            .name {
+                order: 2;
+            }
+
+            .profession {
+                order: 3;
+            }
+
+            .socials {
+                order: 4;
+
+                margin-bottom: 28px;
+            }
+
+            .directions {
+                order: 5;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .statistics,
+            .advantages {
+                min-height: auto;
+
+                border-radius: 22px;
             }
         }
 
 
         @media (max-width: 600px) {
 
-            html {
-                scroll-padding-top: 130px;
+            .page {
+                width: 94%;
+
+                padding-bottom: 30px;
             }
 
-            .logo {
-                font-size: 17px;
-            }
-
-            .order-button {
-                padding: 10px 15px;
-                font-size: 12px;
-            }
-
-            .nav {
-                gap: 14px;
-            }
-
-            .nav a {
-                font-size: 13px;
+            .hero-content {
+                padding: 35px 22px 0;
             }
 
             .hero {
-                min-height: 100svh;
-
-                padding: 150px 15px 60px;
+                border-radius: 18px;
             }
 
-            .hero-photo {
-                width: 140px;
-                height: 140px;
+            .name {
+                font-size: 40px;
             }
 
-            .hero-text {
+            .profession {
+                font-size: 18px;
+
+                margin-bottom: 25px;
+            }
+
+            .socials {
+                gap: 10px;
+            }
+
+            .social-button {
+                width: 54px;
+                height: 54px;
+
+                font-size: 19px;
+            }
+
+            .direction {
                 font-size: 15px;
             }
 
-            .section {
-                padding: 75px 0;
+            .experience {
+                font-size: 17px;
             }
 
-            .section-description {
+            .experience strong {
+                font-size: 25px;
+            }
+
+            .statistics {
+                padding: 30px 25px;
+            }
+
+            .stat {
+                grid-template-columns: 38px 1fr;
+
+                margin-bottom: 35px;
+            }
+
+            .stat-arrow {
+                font-size: 38px;
+            }
+
+            .stat-number {
+                font-size: 65px;
+            }
+
+            .stat-text {
+                font-size: 21px;
+            }
+
+            .advantages {
+                padding: 30px 25px;
+            }
+
+            .advantage {
                 margin-bottom: 30px;
             }
 
-            .works-grid {
-                grid-template-columns: 1fr;
-                gap: 18px;
+            .advantage-title {
+                font-size: 19px;
             }
 
-            .work-card {
-                border-radius: 14px;
-            }
-
-            .cta {
-                padding: 80px 15px;
+            .advantage-text {
+                font-size: 16px;
             }
         }
+
     </style>
 </head>
 
 
 <body>
 
-
-    <!-- =========================
-         ЗАКРЕПЛЁННАЯ ШАПКА
-    ========================== -->
-
-    <header class="header">
-
-        <div class="header-inner">
-
-            <a href="#home" class="logo">
-                НИКОЛАЙ <span>ГОЛУБЕВ</span>
-            </a>
-
-            <nav class="nav">
-
-                <a href="#infographics">
-                    Инфографика
-                </a>
-
-                <a href="#social">
-                    Соц. сети
-                </a>
-
-            </nav>
-
-            <a
-                href="https://vk.ru/nikolaygolubev_smm"
-                target="_blank"
-                class="order-button"
-            >
-                Заказать дизайн
-            </a>
-
-        </div>
-
-    </header>
+    <div class="page">
 
 
+        <!-- =========================================
+             ПЕРВЫЙ БЛОК
+        ========================================== -->
 
-    <!-- =========================
-         ГЛАВНЫЙ ЭКРАН
-    ========================== -->
-
-    <main>
-
-        <section class="hero" id="home">
+        <section class="hero">
 
             <div class="hero-content">
 
-                <!-- ТВОЯ ФОТОГРАФИЯ -->
+
+                <!-- ИНФОРМАЦИЯ О РАБОТЕ -->
+
+                <div class="experience">
+
+                    Работаю
+
+                    <strong>
+                        с 2022 г
+                    </strong>
+
+                </div>
+
+
+                <!-- ИМЯ -->
+
+                <h1 class="name">
+                    Николай Голубев
+                </h1>
+
+
+                <!-- ПРОФЕССИЯ -->
+
+                <div class="profession">
+                    графический дизайнер, маркетолог
+                </div>
+
+
+                <!-- СОЦИАЛЬНЫЕ СЕТИ -->
+
+                <div class="socials">
+
+
+                    <!-- VK -->
+
+                    <a
+                        href="https://vk.ru/nikolaygolubev_smm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-button vk"
+                        aria-label="VK"
+                    >
+                        VK
+                    </a>
+
+
+                    <!-- YouTube -->
+
+                    <a
+                        href="https://www.youtube.com/channel/UCV9j4Br9pt_iCBNnjd4rWiQ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-button youtube"
+                        aria-label="YouTube"
+                    >
+                        ▶
+                    </a>
+
+
+                    <!-- Telegram -->
+
+                    <a
+                        href="https://t.me/nikolaygolubev_smm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-button telegram"
+                        aria-label="Telegram"
+                    >
+                        ✈
+                    </a>
+
+
+                    <!-- WhatsApp -->
+
+                    <a
+                        href="#"
+                        class="social-button whatsapp"
+                        aria-label="WhatsApp"
+                    >
+                        ☎
+                    </a>
+
+                </div>
+
+
+                <!-- НАПРАВЛЕНИЯ -->
+
+                <div class="directions">
+
+
+                    <div class="direction">
+
+                        <span class="direction-icon">
+                            ›
+                        </span>
+
+                        Инфографика для маркетплейсов
+
+                    </div>
+
+
+                    <div class="direction">
+
+                        <span class="direction-icon">
+                            ›
+                        </span>
+
+                        Оформление соц. сетей
+
+                    </div>
+
+
+                    <div class="direction">
+
+                        <span class="direction-icon">
+                            ›
+                        </span>
+
+                        Дизайн полиграфии
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ФОТО -->
 
                 <img
                     src="images/photo.jpg"
@@ -567,463 +805,152 @@
                     class="hero-photo"
                 >
 
-
-                <h1>
-                    Николай Голубев
-                </h1>
-
-
-                <div class="hero-subtitle">
-                    Графический дизайнер, маркетолог
-                </div>
-
-
-                <p class="hero-text">
-                    Создаю визуальные решения для бизнеса,
-                    брендов и социальных сетей.
-                </p>
-
-
-                <!-- СОЦИАЛЬНЫЕ СЕТИ -->
-
-                <div class="socials">
-
-                    <a
-                        href="https://t.me/nikolaygolubev_smm"
-                        target="_blank"
-                        class="social-button"
-                        aria-label="Telegram"
-                    >
-                        TG
-                    </a>
-
-
-                    <a
-                        href="https://www.youtube.com/channel/UCV9j4Br9pt_iCBNnjd4rWiQ"
-                        target="_blank"
-                        class="social-button"
-                        aria-label="YouTube"
-                    >
-                        ▶
-                    </a>
-
-
-                    <a
-                        href="https://vk.ru/nikolaygolubev_smm"
-                        target="_blank"
-                        class="social-button"
-                        aria-label="VK"
-                    >
-                        VK
-                    </a>
-
-                </div>
-
             </div>
 
         </section>
 
 
 
-        <!-- =========================
-             ИНФОГРАФИКА
-        ========================== -->
+        <!-- =========================================
+             БЛОК С ЦИФРАМИ И ПРЕИМУЩЕСТВАМИ
+        ========================================== -->
 
-        <section class="section" id="infographics">
-
-            <h2 class="section-title">
-                Инфографика
-            </h2>
-
-            <p class="section-description">
-                Примеры работ по созданию инфографики.
-            </p>
+        <section class="info-grid">
 
 
-            <div class="works-grid">
+            <!-- ЦИФРЫ -->
+
+            <div class="statistics">
 
 
-                <!-- РАБОТА 1 -->
+                <!-- 1000 -->
 
-                <article class="work-card">
+                <div class="stat">
 
-                    <img
-                        src="images/infographic/work-1.jpg"
-                        alt="Инфографика — работа 1"
-                        class="work-image"
-                    >
-
-                    <div class="work-info">
-
-                        <h3>
-                            Проект 01
-                        </h3>
-
-                        <p>
-                            Инфографика для товара
-                        </p>
-
+                    <div class="stat-arrow">
+                        ›
                     </div>
 
-                </article>
+                    <div>
 
+                        <div class="stat-number">
+                            1000
+                        </div>
 
-
-                <!-- РАБОТА 2 -->
-
-                <article class="work-card">
-
-                    <img
-                        src="images/infographic/work-2.jpg"
-                        alt="Инфографика — работа 2"
-                        class="work-image"
-                    >
-
-                    <div class="work-info">
-
-                        <h3>
-                            Проект 02
-                        </h3>
-
-                        <p>
-                            Дизайн карточки товара
-                        </p>
+                        <div class="stat-text">
+                            реализованных<br>
+                            проектов
+                        </div>
 
                     </div>
-
-                </article>
-
-
-
-                <!-- РАБОТА 3 -->
-
-                <article class="work-card">
-
-                    <img
-                        src="images/infographic/work-3.jpg"
-                        alt="Инфографика — работа 3"
-                        class="work-image"
-                    >
-
-                    <div class="work-info">
-
-                        <h3>
-                            Проект 03
-                        </h3>
-
-                        <p>
-                            Инфографика и визуальная подача
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- РАБОТА 4 -->
-
-                <article class="work-card">
-
-                    <img
-                        src="images/infographic/work-4.jpg"
-                        alt="Инфографика — работа 4"
-                        class="work-image"
-                    >
-
-                    <div class="work-info">
-
-                        <h3>
-                            Проект 04
-                        </h3>
-
-                        <p>
-                            Дизайн рекламного материала
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- РАБОТА 5 -->
-
-                <article class="work-card">
-
-                    <img
-                        src="images/infographic/work-5.jpg"
-                        alt="Инфографика — работа 5"
-                        class="work-image"
-                    >
-
-                    <div class="work-info">
-
-                        <h3>
-                            Проект 05
-                        </h3>
-
-                        <p>
-                            Визуальная коммуникация
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- РАБОТА 6 -->
-
-                <article class="work-card">
-
-                    <img
-                        src="images/infographic/work-6.jpg"
-                        alt="Инфографика — работа 6"
-                        class="work-image"
-                    >
-
-                    <div class="work-info">
-
-                        <h3>
-                            Проект 06
-                        </h3>
-
-                        <p>
-                            Графический дизайн
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             СОЦИАЛЬНЫЕ СЕТИ
-        ========================== -->
-
-        <section class="social-section" id="social">
-
-            <div class="section">
-
-                <h2 class="section-title">
-                    Соц. сети
-                </h2>
-
-                <p class="section-description">
-                    Примеры оформления социальных сетей и рекламных материалов.
-                </p>
-
-
-                <div class="works-grid">
-
-
-                    <!-- РАБОТА 1 -->
-
-                    <article class="work-card">
-
-                        <img
-                            src="images/social/work-1.jpg"
-                            alt="Социальные сети — работа 1"
-                            class="work-image"
-                        >
-
-                        <div class="work-info">
-
-                            <h3>
-                                Проект 01
-                            </h3>
-
-                            <p>
-                                Оформление социальных сетей
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- РАБОТА 2 -->
-
-                    <article class="work-card">
-
-                        <img
-                            src="images/social/work-2.jpg"
-                            alt="Социальные сети — работа 2"
-                            class="work-image"
-                        >
-
-                        <div class="work-info">
-
-                            <h3>
-                                Проект 02
-                            </h3>
-
-                            <p>
-                                Визуал для социальных сетей
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- РАБОТА 3 -->
-
-                    <article class="work-card">
-
-                        <img
-                            src="images/social/work-3.jpg"
-                            alt="Социальные сети — работа 3"
-                            class="work-image"
-                        >
-
-                        <div class="work-info">
-
-                            <h3>
-                                Проект 03
-                            </h3>
-
-                            <p>
-                                Рекламный дизайн
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- РАБОТА 4 -->
-
-                    <article class="work-card">
-
-                        <img
-                            src="images/social/work-4.jpg"
-                            alt="Социальные сети — работа 4"
-                            class="work-image"
-                        >
-
-                        <div class="work-info">
-
-                            <h3>
-                                Проект 04
-                            </h3>
-
-                            <p>
-                                Дизайн публикаций
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- РАБОТА 5 -->
-
-                    <article class="work-card">
-
-                        <img
-                            src="images/social/work-5.jpg"
-                            alt="Социальные сети — работа 5"
-                            class="work-image"
-                        >
-
-                        <div class="work-info">
-
-                            <h3>
-                                Проект 05
-                            </h3>
-
-                            <p>
-                                Оформление контента
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- РАБОТА 6 -->
-
-                    <article class="work-card">
-
-                        <img
-                            src="images/social/work-6.jpg"
-                            alt="Социальные сети — работа 6"
-                            class="work-image"
-                        >
-
-                        <div class="work-info">
-
-                            <h3>
-                                Проект 06
-                            </h3>
-
-                            <p>
-                                Графический дизайн
-                            </p>
-
-                        </div>
-
-                    </article>
 
                 </div>
 
+
+                <!-- 15 -->
+
+                <div class="stat">
+
+                    <div class="stat-arrow">
+                        ›
+                    </div>
+
+                    <div>
+
+                        <div class="stat-number">
+                            15
+                        </div>
+
+                        <div class="stat-text">
+                            направлений услуг<br>
+                            графического дизайна
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ПРЕИМУЩЕСТВА -->
+
+            <div class="advantages">
+
+
+                <!-- ПУНКТ 1 -->
+
+                <div class="advantage">
+
+                    <div class="advantage-title">
+
+                        <span class="advantage-dot"></span>
+
+                        ЧЕТКОСТЬ И ПРОЗРАЧНОСТЬ
+
+                    </div>
+
+                    <div class="advantage-text">
+
+                        четкие сроки выполнения,<br>
+                        понятная стоимость
+
+                    </div>
+
+                </div>
+
+
+                <!-- ПУНКТ 2 -->
+
+                <div class="advantage">
+
+                    <div class="advantage-title">
+
+                        <span class="advantage-dot"></span>
+
+                        КАЧЕСТВО РАБОТЫ
+
+                    </div>
+
+                    <div class="advantage-text">
+
+                        не просто дизайн, а дизайн<br>
+                        с опорой на маркетинг и<br>
+                        психологию потребителя
+
+                    </div>
+
+                </div>
+
+
+                <!-- ПУНКТ 3 -->
+
+                <div class="advantage">
+
+                    <div class="advantage-title">
+
+                        <span class="advantage-dot"></span>
+
+                        БЫСТРАЯ ОБРАТНАЯ СВЯЗЬ
+
+                    </div>
+
+                    <div class="advantage-text">
+
+                        чтобы было комфортно работать
+
+                    </div>
+
+                </div>
+
+
             </div>
 
         </section>
 
-
-
-        <!-- =========================
-             ЗАКАЗ ДИЗАЙНА
-        ========================== -->
-
-        <section class="cta">
-
-            <h2>
-                Нужен дизайн?
-            </h2>
-
-            <p>
-                Напишите мне, расскажите о задаче,
-                и обсудим проект.
-            </p>
-
-            <a
-                href="https://vk.ru/nikolaygolubev_smm"
-                target="_blank"
-                class="cta-button"
-            >
-                Заказать дизайн
-            </a>
-
-        </section>
-
-    </main>
-
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-        © 2026 Николай Голубев
-
-    </footer>
-
+    </div>
 
 </body>
 </html>
