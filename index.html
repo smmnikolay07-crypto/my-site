@@ -1,224 +1,226 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-
 <head>
-    <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <title>Николай Голубев — графический дизайнер, маркетолог</title>
+  <meta
+    name="description"
+    content="Николай Голубев: графический дизайн, оформление соцсетей, рекламные баннеры и полиграфия."
+  >
 
-    <title>Николай Голубев — графический дизайнер</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-    <style>
+    html {
+      background: #000;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+      margin: 0;
+      background: #000;
+    }
 
-        html,
-        body {
-            background: #000000;
-            width: 100%;
-        }
+    /*
+      Координаты ссылок рассчитаны для макета размером 1920 × 3240 px.
+      Изображение и ссылки масштабируются вместе.
+    */
+    .site {
+      position: relative;
+      width: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
+    }
 
-        body {
-            overflow-x: hidden;
-        }
+    .site__design {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
 
+    .button {
+      position: absolute;
+      display: block;
+      background-image: var(--button-image);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      border-radius: 12px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-        /* =========================
-           КОНТЕЙНЕР САЙТА
-        ========================= */
+    .button:focus-visible {
+      outline: 3px solid #ffffff;
+      outline-offset: 4px;
+    }
 
-        .site {
-            width: 100%;
-            max-width: 1920px;
-            margin: 0 auto;
-        }
+    /*
+      Соцсети. Четвёртая, зелёная кнопка на макете
+      не получает ссылку: адрес для неё не указан.
+    */
+    .button--vk {
+      left: 12.1354%;
+      top: 17.3457%;
+      width: 7.3958%;
+      height: 4.4444%;
+      --button-image: url("assets/vk.png");
+    }
 
+    .button--youtube {
+      left: 21.7708%;
+      top: 17.3457%;
+      width: 7.4479%;
+      height: 4.4444%;
+      --button-image: url("assets/youtube.png");
+    }
 
-        /* =========================
-           ТВОЙ ГОТОВЫЙ МАКЕТ
-        ========================= */
+    .button--telegram {
+      left: 31.5625%;
+      top: 17.3457%;
+      width: 7.5000%;
+      height: 4.4444%;
+      --button-image: url("assets/telegram.png");
+    }
 
-        .design {
-            position: relative;
-            width: 100%;
-        }
+    /* Портфолио */
+    .button--all {
+      left: 69.4271%;
+      top: 66.2654%;
+      width: 23.9063%;
+      height: 3.7037%;
+      --button-image: url("assets/view-all.png");
+    }
 
-        .design-image {
-            display: block;
+    .button--cards {
+      left: 52.6563%;
+      top: 72.1296%;
+      width: 31.2500%;
+      height: 3.7037%;
+      --button-image: url("assets/product-cards.png");
+    }
 
-            width: 100%;
-            height: auto;
-        }
+    .button--social {
+      left: 52.7083%;
+      top: 76.8519%;
+      width: 20.1042%;
+      height: 3.7037%;
+      --button-image: url("assets/social-media.png");
+    }
 
+    .button--banners {
+      left: 52.6563%;
+      top: 81.9444%;
+      width: 35.3125%;
+      height: 3.7037%;
+      --button-image: url("assets/banners.png");
+    }
 
-        /* =========================
-           ОБЩАЯ КЛИКАБЕЛЬНАЯ ОБЛАСТЬ
-        ========================= */
+    .button--logos {
+      left: 52.6563%;
+      top: 87.0679%;
+      width: 20.1563%;
+      height: 3.7037%;
+      --button-image: url("assets/logos.png");
+    }
 
-        .social-link {
-            position: absolute;
-
-            display: block;
-
-            z-index: 10;
-
-            /*
-            Пока область полностью прозрачная.
-            */
-
-            background: transparent;
-
-            /*
-            Убираем стандартное
-            подчёркивание ссылки.
-            */
-
-            text-decoration: none;
-        }
-
-
-        /* =========================
-           VK
-        ========================= */
-
-        .vk {
-
-            left: 14.0%;
-            top: 13.1%;
-
-            width: 5.7%;
-            height: 2.9%;
-        }
-
-
-        /* =========================
-           YOUTUBE
-        ========================= */
-
-        .youtube {
-
-            left: 19.7%;
-            top: 13.1%;
-
-            width: 5.7%;
-            height: 2.9%;
-        }
-
-
-        /* =========================
-           TELEGRAM
-        ========================= */
-
-        .telegram {
-
-            left: 26.3%;
-            top: 13.1%;
-
-            width: 5.7%;
-            height: 2.9%;
-        }
-
-
-        /* =========================
-           WHATSAPP
-        ========================= */
-
-        .whatsapp {
-
-            left: 32.3%;
-            top: 13.1%;
-
-            width: 5.7%;
-            height: 2.9%;
-        }
-
-
-    </style>
-
+    .button--print {
+      left: 52.6563%;
+      top: 91.9753%;
+      width: 24.0625%;
+      height: 3.7037%;
+      --button-image: url("assets/print.png");
+    }
+  </style>
 </head>
 
-
 <body>
+  <main class="site">
+    <img
+      class="site__design"
+      src="assets/design.png"
+      alt="Николай Голубев — графический дизайнер и маркетолог. Информация об услугах и портфолио."
+      width="1920"
+      height="3240"
+    >
 
+    <!-- Социальные сети -->
+    <a
+      class="button button--vk"
+      href="https://vk.ru/nikolaygolubev_smm"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="ВКонтакте Николая Голубева"
+    ></a>
 
-    <main class="site">
+    <a
+      class="button button--youtube"
+      href="https://www.youtube.com/channel/UCV9j4Br9pt_iCBNnjd4rWiQ"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="YouTube Николая Голубева"
+    ></a>
 
-        <div class="design">
+    <a
+      class="button button--telegram"
+      href="https://t.me/nikolaygolubev_smm"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Telegram Николая Голубева"
+    ></a>
 
+    <!-- Портфолио -->
+    <a
+      class="button button--all"
+      href="https://vk.ru/albums-214668388"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Смотреть всё портфолио"
+    ></a>
 
-            <!-- ==================================
-                 ТВОЙ ГОТОВЫЙ ДИЗАЙН
-            =================================== -->
+    <a
+      class="button button--cards"
+      href="https://vk.ru/album-214668388_301716875"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Портфолио: карточки товаров"
+    ></a>
 
-            <img
-                src="images/design.jpg"
-                alt="Николай Голубев"
-                class="design-image"
-            >
+    <a
+      class="button button--social"
+      href="https://vk.ru/album-214668388_296047061"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Портфолио: оформление соцсетей"
+    ></a>
 
+    <a
+      class="button button--banners"
+      href="https://vk.ru/album-214668388_301225192"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Портфолио: рекламные баннеры"
+    ></a>
 
-            <!-- ==================================
-                 VK
-            =================================== -->
+    <a
+      class="button button--logos"
+      href="https://vk.ru/album-214668388_301225162"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Портфолио: логотипы"
+    ></a>
 
-            <a
-                href="https://vk.ru/nikolaygolubev_smm"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link vk"
-                aria-label="ВКонтакте"
-            ></a>
-
-
-            <!-- ==================================
-                 YOUTUBE
-            =================================== -->
-
-            <a
-                href="https://www.youtube.com/channel/UCV9j4Br9pt_iCBNnjd4rWiQ"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link youtube"
-                aria-label="YouTube"
-            ></a>
-
-
-            <!-- ==================================
-                 TELEGRAM
-            =================================== -->
-
-            <a
-                href="https://t.me/nikolaygolubev_smm"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link telegram"
-                aria-label="Telegram"
-            ></a>
-
-
-            <!-- ==================================
-                 WHATSAPP
-            =================================== -->
-
-            <a
-                href="#"
-                class="social-link whatsapp"
-                aria-label="WhatsApp"
-            ></a>
-
-
-        </div>
-
-    </main>
-
-
+    <a
+      class="button button--print"
+      href="https://vk.ru/album-214668388_301225132"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Портфолио: полиграфия"
+    ></a>
+  </main>
 </body>
-
 </html>
